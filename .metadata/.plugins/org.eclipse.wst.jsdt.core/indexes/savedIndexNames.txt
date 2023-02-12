@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+/Users/leoastby/eclipse-workspace/MiChaucheritaWeb/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2587937537.index
+495166103.index
+3113042988.index
+3729911997.index
