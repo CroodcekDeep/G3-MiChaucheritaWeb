@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- contruida con jstl -->
+	<h1>Listado de Personas</h1>
+	<p><a href="">Nuevo</a></p>
+	<table>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Password</th>
+			<th>Acciones</th>
+		</tr>
+		</thead>
+		
+		<c:forEach items="${personas}" var="persona">
+			<tr>
+				<td>${persona.id}</td>
+				<td>${persona.nombre}</td>
+				<td>${persona.password}</td>
+				<td><a href="">Actualizar</a>| <a href="">Eliminar</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+</body>
+</html>

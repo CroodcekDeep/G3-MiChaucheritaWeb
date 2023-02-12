@@ -1,0 +1,11 @@
+package models;
+
+public class Persona {
+
+	public int idPersona;
+	public String nombre;
+	public String correo;
+	public String usuario;
+	public String password;
+	
+}

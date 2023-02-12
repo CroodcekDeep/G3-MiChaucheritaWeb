@@ -1,0 +1,8 @@
+package models;
+
+public class Ingreso extends Cuenta{
+
+	private static final long serialVersionUID = 1L;
+
+	
+}

@@ -1,0 +1,8 @@
+package models;
+
+public class Cuenta {
+
+	public int idCuenta;
+	public String nombre;
+	public double monto;
+}

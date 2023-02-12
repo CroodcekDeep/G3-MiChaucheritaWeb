@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\Users\karl-\OneDrive\Documents\GitHub\G3-MiChaucheritaWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1083447777.index
+\MiChaucheritaWebApp\src\main\java

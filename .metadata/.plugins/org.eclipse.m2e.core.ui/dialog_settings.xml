@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="MiChaucheritaWebApp"/>
 			<item value="MiChaucheritaWeb_2.0"/>
 			<item value="MiChaucheritaWeb_Grupo3"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="MiChaucheritaWebApp"/>
 			<item value="MiChaucheritaWeb_2.0"/>
 			<item value="MiChaucheritaWeb_Grupo3"/>
 		</list>

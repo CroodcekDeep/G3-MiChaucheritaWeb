@@ -52,5 +52,6 @@
             <entry path="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/lib/endorsed"/>
         </endorsedDirs>
     </libraryInfo>
+    <libraryInfo home="C:\Program Files\Java\jdk-19" version="19"/>
     <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home" version="15.0.2"/>
 </libraryInfos>
