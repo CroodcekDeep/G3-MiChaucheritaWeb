@@ -2,9 +2,13 @@ package models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import Exceptions.MovimientoException;
+import models.Persona;
 
 public abstract class Cuenta implements Serializable {
 	
@@ -13,7 +17,7 @@ public abstract class Cuenta implements Serializable {
 	private String nombre;
 	private double monto;
 	
-	private List<Movimiento> movimientos = null;
+	private static List<Movimiento> movimientos = null;
 	
 	public Cuenta(int idCuenta, String nombre, double monto) {
 		super();
@@ -43,7 +47,7 @@ public abstract class Cuenta implements Serializable {
 		this.monto = monto;
 	}
 	
-	public List<Movimiento> getMovimientos() {
+	public static List<Movimiento> getMovimientos() {
 		if(movimientos == null) {
 			
 			Cuenta cuentaOrigen = new Ingreso(1,"Nomina", 200.0);
@@ -85,10 +89,35 @@ public abstract class Cuenta implements Serializable {
 		}
 		return m;
 	}
+	
 
 	@Override
 	public String toString() {
 		return nombre;
 	}
+	
+	public static void realizarMovimiento(String NombreCuentaOrigen, String NombreCuentaDestino, String concepto, double valor) throws MovimientoException{
+		
+		int max = 0;
+		
+		for(Movimiento movimiento: Cuenta.movimientos) {
+			if(max < movimiento.getIdMovimiento()) {
+				max = movimiento.getIdMovimiento();
+			}
+		}
+		
+		Cuenta cuentaOrigen = Persona.getCuentaByName(NombreCuentaOrigen);
+		Cuenta cuentaDestino = Persona.getCuentaByName(NombreCuentaDestino);
+		
+		Movimiento movimiento = new Movimiento(max, cuentaOrigen, cuentaDestino, concepto, valor, LocalDate.now());
+		
+		cuentaOrigen.retirar(valor);
+		cuentaDestino.depositar(valor);
+		Cuenta.getMovimientos().add(movimiento);
+			
+	}
+	
+	public abstract void depositar(double valor) throws MovimientoException;
+	public abstract void retirar(double valor) throws MovimientoException;
 	
 }

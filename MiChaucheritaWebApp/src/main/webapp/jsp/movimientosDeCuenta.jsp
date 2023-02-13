@@ -31,6 +31,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<p><a href="">Nuevo Movimiento</a></p>
+	<p><a href="GestionarMovimientosController?ruta=realizarMovimiento">Nuevo Movimiento</a></p>
 </body>
 </html>
