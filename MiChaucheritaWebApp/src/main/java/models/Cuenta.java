@@ -12,6 +12,7 @@ public abstract class Cuenta implements Serializable {
 	private int idCuenta;
 	private String nombre;
 	private double monto;
+	private String tipo;
 	
 	private List<Movimiento> movimientos = null;
 	
@@ -29,7 +30,9 @@ public abstract class Cuenta implements Serializable {
 	public int getIdCuenta() {
 		return idCuenta;
 	}
-	
+	public void setIdCuenta(int idCuenta) {
+		this.idCuenta = idCuenta;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -42,7 +45,13 @@ public abstract class Cuenta implements Serializable {
 	public void setMonto(double monto) {
 		this.monto = monto;
 	}
-	
+	public void actualizarCuenta(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getTipo() {
+		tipo = this.getClass().getName();
+		return tipo.substring(tipo.lastIndexOf('.') + 1);
+	}
 	public List<Movimiento> getMovimientos() {
 		if(movimientos == null) {
 			

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Iterator;
+
 public class Persona implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -77,6 +79,16 @@ public class Persona implements Serializable{
 		
 		return cuentas;
 	}
+	public void crearCuenta(Cuenta c) {
+		int max = 0;
+		for(Cuenta cuenta: cuentas) {
+			if(max < cuenta.getIdCuenta()) {
+				max = cuenta.getIdCuenta();
+			}
+		}
+		c.setIdCuenta(max+1);
+		cuentas.add(c);
+	}
 	
 	public Cuenta getCuentaById(int idCuenta) {
 		Cuenta c = null;
@@ -94,6 +106,16 @@ public class Persona implements Serializable{
 	public void setCuentas(List<Cuenta> cuentas) {
 		this.cuentas = cuentas;
 	}
-	
+	public void eliminarCuenta(int id) {
+		Iterator<Cuenta> iterator = cuentas.iterator();
+		while(iterator.hasNext()) {
+			Cuenta c = iterator.next();
+			if(c.getIdCuenta() == id) {
+				iterator.remove();
+				break;
+			}
+		}
+		
+	}
 	
 }

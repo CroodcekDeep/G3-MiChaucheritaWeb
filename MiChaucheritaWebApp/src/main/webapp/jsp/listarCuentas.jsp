@@ -10,6 +10,7 @@
 <body>
 	<!-- contruida con jstl -->
 	<h1>Listado de Cuentas</h1>
+	<p><a href="GestionarCuentaController?ruta=nuevo">Nueva Cuenta</a></p>
 	<table>
 	<thead>
 		<tr>
@@ -25,8 +26,8 @@
 				<td>${cuenta.idCuenta}</td>
 				<td>${cuenta.nombre}</td>
 				<td>${cuenta.monto}</td>
-				<td><a href="">Actualizar</a> 
-				| <a href="">Eliminar</a> 
+				<td><a href="GestionarCuentaController?ruta=ver&id=${cuenta.idCuenta}">Ver</a> 
+				| <a href="GestionarCuentaController?ruta=eliminar&id=${cuenta.idCuenta}">Eliminar</a> 
 				| <a href="GestionarMovimientosController?ruta=listarMovimientosDeCuenta&idCuenta=${cuenta.idCuenta}">Ver Movimientos</a> </td>
 			</tr>
 		</c:forEach>
