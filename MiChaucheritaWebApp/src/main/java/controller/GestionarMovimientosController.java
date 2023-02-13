@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Exceptions.MovimientoException;
 import models.Cuenta;
 import models.Movimiento;
 import models.Persona;
@@ -54,9 +55,36 @@ public class GestionarMovimientosController extends HttpServlet {
 		case "verDetalleMovimiento":
 			this.verDetalleMovimiento(request, response);
 			break;
+		case "realizarMovimiento":
+			this.realizarMovimiento(request, response);
+			break;
+		case "guardarMovimiento":
+			this.guardarMovimiento(request, response);
+			break;
+	}
+		}
+		
+	
+	private void realizarMovimiento(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("jsp/crearMovimiento.jsp").forward(request, response);
+	}
+	private void guardarMovimiento(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String cuentaOrigen = request.getParameter("txtCuentaOrigen");
+		String cuentaDestino = request.getParameter("txtCuentaDestino");
+		String concepto = request.getParameter("txtConcepto");
+		double valor = Double.parseDouble(request.getParameter("txtValor"));
+		
+		try {
+			Cuenta.realizarMovimiento(cuentaOrigen, cuentaDestino, concepto, valor);
+			this.verMovimientosGenerales(request, response);
+		} catch (MovimientoException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+			this.verMovimientosGenerales(request, response);
 		}
 	}
-	
+
 	private void listarMovimientosDeCuenta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.obtener datos
 		int idCuenta = Integer.parseInt(request.getParameter("idCuenta"));

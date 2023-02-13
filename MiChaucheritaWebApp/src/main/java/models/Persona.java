@@ -2,6 +2,7 @@ package models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import java.util.Iterator;
@@ -101,6 +102,21 @@ public class Persona implements Serializable{
 			}
 		}
 		return c;
+	}
+	
+	public static Cuenta getCuentaByName(String nombreCuenta) {
+		
+		Iterator<Cuenta> cuentas = Persona.getCuentas().iterator();
+		nombreCuenta = nombreCuenta.trim();
+		
+		while(cuentas.hasNext()) {
+			Cuenta cuentaHallada = cuentas.next();
+			if(cuentaHallada.getNombre().equals(nombreCuenta)) {
+				return cuentaHallada;
+			}
+		}
+		return null;
+
 	}
 
 	public void setCuentas(List<Cuenta> cuentas) {
