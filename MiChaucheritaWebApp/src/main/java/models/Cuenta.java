@@ -1,6 +1,10 @@
 package models;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public abstract class Cuenta implements Serializable {
 	
@@ -8,6 +12,8 @@ public abstract class Cuenta implements Serializable {
 	private int idCuenta;
 	private String nombre;
 	private double monto;
+	
+	private List<Movimiento> movimientos = null;
 	
 	public Cuenta(int idCuenta, String nombre, double monto) {
 		super();
@@ -37,5 +43,52 @@ public abstract class Cuenta implements Serializable {
 		this.monto = monto;
 	}
 	
+	public List<Movimiento> getMovimientos() {
+		if(movimientos == null) {
+			
+			Cuenta cuentaOrigen = new Ingreso(1,"Nomina", 200.0);
+			Cuenta cuentaDestino = new IngresoGasto(2,"Banco");
+			
+			movimientos = new ArrayList<Movimiento>();
+			
+			movimientos.add(new Movimiento(1,cuentaOrigen,cuentaDestino,"Pago de Sueldo",800,LocalDate.of(2022,11,30)));
+			movimientos.add(new Movimiento(2,cuentaOrigen,cuentaDestino,"Pago de Sueldo",800,LocalDate.of(2022,12,31)));
+			movimientos.add(new Movimiento(3,cuentaOrigen,cuentaDestino,"Pago de Sueldo",800,LocalDate.now()));
+		}
+		
+		return movimientos;
+	}
+	
+	
+	public List<Movimiento> getMovimientosByIdCuenta(int idCuenta) {;
+		
+		Iterator<Cuenta> cuentas = Persona.getCuentas().iterator();
+		
+		while(cuentas.hasNext()) {
+			Cuenta cuentaHallada = cuentas.next();
+			if(cuentaHallada.getIdCuenta()==idCuenta) {
+				return cuentaHallada.getMovimientos();
+			}
+		}
+		return null;
+	}
+	
+	public Movimiento getMovimientoById(int idMovimiento) {
+		Movimiento m = null;
+		
+		List<Movimiento> listMovimientos = this.getMovimientos();
+		for(Movimiento movimiento: listMovimientos) {
+			if(movimiento.getIdMovimiento()==idMovimiento) {
+				m=movimiento;
+				break;
+			}
+		}
+		return m;
+	}
+
+	@Override
+	public String toString() {
+		return nombre;
+	}
 	
 }

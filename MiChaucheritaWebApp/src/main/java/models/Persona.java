@@ -13,7 +13,7 @@ public class Persona implements Serializable{
 	private String usuario;
 	private String password;
 	
-	private List<Cuenta> cuentas = null;
+	private static List<Cuenta> cuentas = null;
 	
 	
 
@@ -67,7 +67,7 @@ public class Persona implements Serializable{
 		this.password = password;
 	}
 
-	public List<Cuenta> getCuentas() {
+	public static List<Cuenta> getCuentas() {
 		if(cuentas == null) {
 			cuentas = new ArrayList<Cuenta>();
 			cuentas.add(new Ingreso(1,"Nomina", 200.0));
@@ -76,6 +76,19 @@ public class Persona implements Serializable{
 		}
 		
 		return cuentas;
+	}
+	
+	public Cuenta getCuentaById(int idCuenta) {
+		Cuenta c = null;
+		
+		List<Cuenta> listCuentas = this.getCuentas();
+		for(Cuenta cuenta: listCuentas) {
+			if(cuenta.getIdCuenta()==idCuenta) {
+				c=cuenta;
+				break;
+			}
+		}
+		return c;
 	}
 
 	public void setCuentas(List<Cuenta> cuentas) {

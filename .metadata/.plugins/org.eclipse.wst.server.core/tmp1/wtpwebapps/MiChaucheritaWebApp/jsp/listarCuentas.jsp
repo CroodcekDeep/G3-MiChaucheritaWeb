@@ -5,12 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Mi Chaucherita Web</title>
 </head>
 <body>
 	<!-- contruida con jstl -->
 	<h1>Listado de Cuentas</h1>
-	<p><a href="GestionarCuentaController">Nuevo Movimiento</a></p>
 	<table>
 	<thead>
 		<tr>
@@ -26,9 +25,13 @@
 				<td>${cuenta.idCuenta}</td>
 				<td>${cuenta.nombre}</td>
 				<td>${cuenta.monto}</td>
-				<td><a href="">Actualizar</a>| <a href="">Eliminar</a></td>
+				<td><a href="">Actualizar</a> 
+				| <a href="">Eliminar</a> 
+				| <a href="GestionarMovimientosController?ruta=listarMovimientosDeCuenta&idCuenta=${cuenta.idCuenta}">Ver Movimientos</a> </td>
 			</tr>
 		</c:forEach>
 	</table>
+	<p><a href="GestionarMovimientosController?ruta=verMovimientosGenerales">Ver Todos los Movimientos</a></p>
+	<p><a href="">Nuevo Movimiento</a></p>
 </body>
 </html>

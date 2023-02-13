@@ -1,0 +1,79 @@
+package models;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Cuenta implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	private int idCuenta;
+	private String nombre;
+	private double monto;
+	
+	private List<Movimiento> movimientos = null;
+	
+	public Cuenta(int idCuenta, String nombre, double monto) {
+		super();
+		this.idCuenta = idCuenta;
+		this.nombre = nombre;
+		this.monto = monto;
+	}
+
+	public Cuenta() {
+		
+	}
+	
+	public int getIdCuenta() {
+		return idCuenta;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public double getMonto() {
+		return monto;
+	}
+	public void setMonto(double monto) {
+		this.monto = monto;
+	}
+	
+	public List<Movimiento> getMovimientos() {
+		if(movimientos == null) {
+			Cuenta cuentaOrigen = new Ingreso(1,"Nomina", 200.0);
+			Cuenta cuentaDestino = new IngresoGasto(2,"Banco");
+			
+			movimientos = new ArrayList<Movimiento>();
+			
+			movimientos.add(new Movimiento(1,cuentaOrigen,cuentaDestino,"Pago de Sueldo",800,LocalDate.of(2022,11,30)));
+			movimientos.add(new Movimiento(2,cuentaOrigen,cuentaDestino,"Pago de Sueldo",800,LocalDate.of(2022,12,31)));
+			movimientos.add(new Movimiento(3,cuentaOrigen,cuentaDestino,"Pago de Sueldo",800,LocalDate.now()));
+		}
+		
+		return movimientos;
+	}
+	
+	
+	public List<Movimiento> getMovimientosByIdCuenta(int idCuenta) {
+		
+		List<Movimiento> listMovimientos = this.getMovimientos();
+		
+		for(Movimiento movimiento: listMovimientos) {
+			if(movimiento.getCuentaOrigen().getIdCuenta()==idCuenta ||movimiento.getCuentaDestino().getIdCuenta()==idCuenta) {
+				List<Movimiento> mvs;
+				mvs.add(movimiento);
+			}	
+		}
+		return mvs;
+	}
+
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
+}
