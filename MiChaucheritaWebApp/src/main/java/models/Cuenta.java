@@ -49,7 +49,13 @@ public abstract class Cuenta implements Serializable {
 	public void setMonto(double monto) {
 		this.monto = monto;
 	}
-	
+	public void actualizarCuenta(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getTipo() {
+		tipo = this.getClass().getName();
+		return tipo.substring(tipo.lastIndexOf('.') + 1);
+	}
 	public static List<Movimiento> getMovimientos() {
 		if(movimientos == null) {
 			
