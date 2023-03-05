@@ -13,7 +13,6 @@ public class TestEntityManager {
 		cuentaPichincha.setTotal(0);
 		
 		DAOFactory.getFactory().getCuentaDAO().create(cuentaPichincha);
-
 	}
 
 }

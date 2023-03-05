@@ -3,3 +3,5 @@ C:\Users\leoas\Documents\GitHub\G3-MiChaucheritaWeb\.metadata\.plugins\org.eclip
 \MiChaucheritaWebApp\src\main\java
 /Users/leoastby/eclipse-workspace/MiChaucheritaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1099006665.index
 /MiChaucheritaWebApp/src/main/java
+/Users/leoastby/eclipse-workspace/MiChaucheritaWeb/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2604761149.index
+/examenweb/src/main/java

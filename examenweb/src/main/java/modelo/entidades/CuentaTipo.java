@@ -7,10 +7,12 @@ public enum CuentaTipo {
 	
 	private String nombreTipo;
 	private int idTipo;
+	
 	CuentaTipo(String nombreTipo, int id) {
 		this.idTipo = id;
 		this.nombreTipo = nombreTipo; 
 	}
+	
 	public String getNombreTipo() {
 		return nombreTipo;
 	}
@@ -23,6 +25,5 @@ public enum CuentaTipo {
 	public void setIdTipo(int idTipo) {
 		this.idTipo = idTipo;
 	}
-	
-	
+
 }
