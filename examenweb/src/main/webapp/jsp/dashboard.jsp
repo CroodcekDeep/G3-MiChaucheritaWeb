@@ -17,18 +17,20 @@
             	<li class="list-inline-item"><a href="DashboardController?ruta=ver">Dashboard</a></li>
                 <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoIngreso">Ingreso</a></li>
                 <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoEgreso">Egreso</a></li>
-                <li class="list-inline-item"><a href="">Transferencia</a></li> 
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoIngresoEgreso">Transferencia</a></li> 
             </ul>
         </div>
         <div>
         	<form method="get" action="DashboardController?ruta=ver">
         	Mes:
-        	<select>
+        	<select name="mesSeleccionado">
         	<c:forEach items="${meses}" var="mes">
         		<option value="${mes.id}" ${mes.id== messeleccionado ? 'selected':''} >${mes.nombre}</option>
         	</c:forEach>
         	</select>
+        	<input type="submit" value="Consultar">
         	</form>
+        	
       
         </div>
         

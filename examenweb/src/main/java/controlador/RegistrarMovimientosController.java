@@ -67,7 +67,30 @@ public class RegistrarMovimientosController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		case "nuevoIngresoEgreso":
+			crearIngresoEgreso(request, response);
+			break;
+		case "guardarIngresoEgreso":
+			try {
+				guardarIngresoEgreso(request, response);
+			} catch (Exception e) {
+				request.setAttribute("error", e.getMessage());
+				mostrarError(request, response);
+				e.printStackTrace();
+			}
+			break;
+			
 		}
+	}
+
+	
+
+	private void crearIngresoEgreso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Cuenta> cuentasIngresoGasto = DAOFactory.getFactory().getCuentaDAO().getCuentasIngresoGasto();
+		request.setAttribute("cuentasIngresoGasto", cuentasIngresoGasto);
+
+		request.getRequestDispatcher("/jsp/traspaso.jsp").forward(request, response);
+		
 	}
 
 	private void guardarIngreso(HttpServletRequest request, HttpServletResponse response)
@@ -143,6 +166,43 @@ public class RegistrarMovimientosController extends HttpServlet {
 		DAOFactory.getFactory().getCuentaDAO().update(cuentaDestino);
 
 		showDashboard(request, response);
+	}
+	private void guardarIngresoEgreso(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// Obtener Datos
+				int idCuentaOrigen = Integer.parseInt(request.getParameter("idCuentaOrigen"));
+				int idCuentaDestino = Integer.parseInt(request.getParameter("idCuentaDestino"));
+				double valor = Double.parseDouble(request.getParameter("valor"));
+				String concepto = request.getParameter("concepto");
+				SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+				Date fecha = null;
+				Movimiento ingreso = new Movimiento();
+
+				fecha = formatoFecha.parse(request.getParameter("fecha"));
+
+				// Llamar al modelo
+				Cuenta cuentaOrigen = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaOrigen);
+				Cuenta cuentaDestino = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaDestino);
+
+				ingreso.setOrigen(cuentaOrigen);
+				ingreso.setDestino(cuentaDestino);
+				ingreso.setValor(valor);
+				ingreso.setConcepto(concepto);
+				ingreso.setFecha(fecha);
+				
+				if (cuentaOrigen.getTotal() < valor) {
+					throw new MovimientoException("Fondos Insuficientes");
+				}
+				
+				DAOFactory.getFactory().getMovimientoDAO().create(ingreso);
+
+				cuentaOrigen.setTotal(cuentaOrigen.getTotal() - valor);
+				DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
+
+				cuentaDestino.setTotal(cuentaDestino.getTotal() + valor);
+				DAOFactory.getFactory().getCuentaDAO().update(cuentaDestino);
+
+				showDashboard(request, response);
+		
 	}
 
 	private void showDashboard(HttpServletRequest request, HttpServletResponse response)

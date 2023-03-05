@@ -41,8 +41,8 @@ public class DashboardController extends HttpServlet {
 	private void showDashboard(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int mes = LocalDate.now().getMonth().getValue();
 		
-		if(request.getParameter("mes")!=null) {
-			mes = Integer.parseInt( request.getParameter("mes"));
+		if(request.getParameter("mesSeleccionado")!=null) {
+			mes = Integer.parseInt( request.getParameter("mesSeleccionado"));
 		}
 		
 		List<CuentaDTO> conjuntoingresos = DAOFactory.getFactory().getCuentaDAO().getConsolidadoCuentasIngreso(mes);
