@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registro de Egreso</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
@@ -27,7 +27,7 @@
                 <fieldset class="d-flex flex-column">
                 
                     <label>Cuenta desacreditada</label>
-                    <select name="idCuentaDestino">
+                    <select name="idCuentaOrigen">
                     <c:forEach items="${cuentasIngresoGasto}" var="cuentaIngresoGasto">
         				<option value="${cuentaIngresoGasto.id}"> ${cuentaIngresoGasto.nombre}</option>
         			</c:forEach>
@@ -38,9 +38,9 @@
                     <label>Fecha</label>
                     <input type="date" name="fecha">
                     <label>Valor</label>
-                    <input type="text" name="valor" id="">
+                    <input type="text" name="valor" id="" placeholder="money">
                     <label>Categoría egreso</label>
-                     <select name="idCuentaOrigen">
+                     <select name="idCuentaDestino">
                     <c:forEach items="${cuentasEgreso}" var="cuentaEgreso">
         				<option value="${cuentaEgreso.id}"> ${cuentaEgreso.nombre}</option>
         			</c:forEach>
