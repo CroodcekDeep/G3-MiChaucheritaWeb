@@ -71,5 +71,7 @@ public class JPACuentaDAO extends JPAGenericDAO<Cuenta, Integer> implements Cuen
 	
 	
 	
+	
+	
 
 }

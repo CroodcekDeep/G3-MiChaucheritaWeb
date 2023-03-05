@@ -23,10 +23,10 @@
         <div>
             <h1>Registro de Ingreso ($$)</h1>
 
-            <form>
+            <form method="post" action="RegistrarMovimientosController?ruta=guardarIngreso">
                 <fieldset class="d-flex flex-column">
                     <label>Categoria Ingreso</label>
-                    <select>
+                    <select name="idCuentaOrigen">
                     <c:forEach items="${cuentasIngreso}" var="cuentaIngreso">
         				<option value="${cuentaIngreso.id}"> ${cuentaIngreso.nombre}</option>
         			</c:forEach>
@@ -38,7 +38,7 @@
                     <label>Valor</label>
                     <input type="text" name="valor" id="">
                     <label>Cuenta acreditada</label>
-                    <select>
+                    <select name="idCuentaDestino">
                     <c:forEach items="${cuentasIngresoGasto}" var="cuentaIngresoGasto">
         				<option value="${cuentaIngresoGasto.id}"> ${cuentaIngresoGasto.nombre}</option>
         			</c:forEach>
