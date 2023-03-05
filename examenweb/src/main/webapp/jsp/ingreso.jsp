@@ -21,13 +21,15 @@
         </div>
 
         <div>
-            <h1>Reistro de Ingreso ($$)</h1>
+            <h1>Registro de Ingreso ($$)</h1>
 
             <form>
                 <fieldset class="d-flex flex-column">
                     <label>Categoria Ingreso</label>
                     <select>
-                        <option>NOMINA</option>
+                    <c:forEach items="${cuentasIngreso}" var="cuentaIngreso">
+        				<option value="${cuentaIngreso.id}"> ${cuentaIngreso.nombre}</option>
+        			</c:forEach>
                     </select>
                     <label>Concepto</label>
                     <input type="text" name="concepto">
@@ -37,7 +39,9 @@
                     <input type="text" name="valor" id="">
                     <label>Cuenta acreditada</label>
                     <select>
-                        <option>BANCO</option>
+                    <c:forEach items="${cuentasIngresoGasto}" var="cuentaIngresoGasto">
+        				<option value="${cuentaIngresoGasto.id}"> ${cuentaIngresoGasto.nombre}</option>
+        			</c:forEach>
                     </select>
                     <br>
                     <input type="submit" value="Guardar">

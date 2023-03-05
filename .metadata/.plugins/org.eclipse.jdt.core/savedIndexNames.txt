@@ -6,7 +6,6 @@ INDEX VERSION 1.131+/Users/leoastby/eclipse-workspace/MiChaucheritaWeb/.metadata
 3074510594.index
 2645443121.index
 2290235014.index
-4027199744.index
 4101038230.index
 394976287.index
 3108184758.index
