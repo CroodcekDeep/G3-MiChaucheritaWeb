@@ -12,6 +12,7 @@ public interface CuentaDAO extends GenericDAO<Cuenta, Integer> {
 	public List<Cuenta> getConsolidadoCuentasIngresoEgreso();
 	
 	public List<Cuenta> getCuentasIngreso();
+	public List<Cuenta> getCuentasEgreso();
 	public List<Cuenta> getCuentasIngresoGasto();
 	
 	

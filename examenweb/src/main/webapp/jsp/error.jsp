@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>ERROR!!!!!!!!!!!!</h1>
+	<a href="DashboardController?ruta=ver">Volver al dashboard</a>  
 </body>
 </html>

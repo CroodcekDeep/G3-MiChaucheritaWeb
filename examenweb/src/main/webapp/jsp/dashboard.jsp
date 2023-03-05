@@ -16,7 +16,7 @@
             <ul class="list-inline">
             	<li class="list-inline-item"><a href="DashboardController?ruta=ver">Dashboard</a></li>
                 <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoIngreso">Ingreso</a></li>
-                <li class="list-inline-item"><a href="">Egreso</a></li>
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoEgreso">Egreso</a></li>
                 <li class="list-inline-item"><a href="">Transferencia</a></li> 
             </ul>
         </div>

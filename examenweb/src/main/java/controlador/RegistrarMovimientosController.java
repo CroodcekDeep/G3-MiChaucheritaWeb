@@ -43,13 +43,17 @@ public class RegistrarMovimientosController extends HttpServlet {
 		case "nuevoIngreso":
 			crearIngreso(request, response);
 			break;
+		case "nuevoEgreso":
+			crearEgreso(request, response);
+			break;
 		case "guardarIngreso":
 			 try {
 				guardarIngreso(request, response);
 			} catch (ParseException e) {
-				
+				mostrarError(request, response);
 				e.printStackTrace();
 			}
+		
 		}
 	}
 
@@ -102,6 +106,20 @@ public class RegistrarMovimientosController extends HttpServlet {
 		
 	}
 	
+	private void crearEgreso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		List<Cuenta> cuentasIngresoGasto = DAOFactory.getFactory().getCuentaDAO().getCuentasIngresoGasto();
+		List<Cuenta> cuentasEgreso = DAOFactory.getFactory().getCuentaDAO().getCuentasEgreso();
+		
+		request.setAttribute("cuentasIngresoGasto", cuentasIngresoGasto);
+		request.setAttribute("cuentasEgreso", cuentasEgreso);
+		
+		request.getRequestDispatcher("/jsp/egreso.jsp").forward(request, response);
+		
+	}
 	
+	private void mostrarError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/jsp/error.jsp").forward(request, response);
+	}
 
 }
