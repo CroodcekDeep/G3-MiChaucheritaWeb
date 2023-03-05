@@ -1,7 +1,0 @@
-package models;
-
-public class Gasto extends Cuenta{
-
-	private static final long serialVersionUID = 1L;
-
-}

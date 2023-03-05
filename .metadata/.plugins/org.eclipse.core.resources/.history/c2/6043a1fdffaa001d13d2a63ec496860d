@@ -1,8 +1,0 @@
-package models;
-
-public class Cuenta {
-
-	private int idCuenta;
-	private String nombre;
-	private double monto;
-}
