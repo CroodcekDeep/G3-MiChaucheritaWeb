@@ -57,13 +57,12 @@
 				<h2 class="text-center mb-4">Registro de Transferencia</h2>
 				 <form method="post" action="RegistrarMovimientosController?ruta=guardarIngresoEgreso">
 					<div class="mb-3">
-						<label for="categoria-ingreso" class="form-label">Categoría
-							Ingreso</label> <select class="form-select" name="idCuentaOrigen"
+						<label for="categoria-ingreso" class="form-label">Cuenta desacreditada</label> <select class="form-select" name="idCuentaOrigen"
 							required>
 							<option value="">Seleccione una cuenta...</option>
-							<c:forEach items="${cuentasIngresoGasto}" var="cuentasIngresoGasto">
-								<option value="${cuentasIngresoGasto.id}">
-									${cuentasIngresoGasto.nombre}</option>
+							<c:forEach items="${cuentasIngresoGasto}" var="cuentaIngresoGasto">
+								<option value="${cuentaIngresoGasto.id}">
+									${cuentaIngresoGasto.nombre}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -88,9 +87,9 @@
 							required>
 							<option value="">Seleccione una cuenta...</option>
 							<c:forEach items="${cuentasIngresoGasto}"
-								var="cuentasEgreso">
-								<option value="${cuentasIngresoGasto.id}">
-									${cuentasIngresoGasto.nombre}</option>
+								var="cuentaIngresoGasto">
+								<option value="${cuentaIngresoGasto.id}">
+									${cuentaIngresoGasto.nombre}</option>
 							</c:forEach>
 						</select>
 					</div>
