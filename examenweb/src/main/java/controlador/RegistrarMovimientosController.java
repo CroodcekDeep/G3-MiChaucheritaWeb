@@ -180,9 +180,13 @@ public class RegistrarMovimientosController extends HttpServlet {
 				fecha = formatoFecha.parse(request.getParameter("fecha"));
 
 				// Llamar al modelo
+				
 				Cuenta cuentaOrigen = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaOrigen);
 				Cuenta cuentaDestino = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaDestino);
-
+				if(cuentaOrigen.getNombre().equals(cuentaDestino.getNombre())) {
+					System.out.println("si entro");
+					throw new MovimientoException("El movimiento debe ser entre cuentas diferentes");
+				}
 				ingreso.setOrigen(cuentaOrigen);
 				ingreso.setDestino(cuentaDestino);
 				ingreso.setValor(valor);

@@ -24,10 +24,15 @@
 <title>Ingresos</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg custom-nav">
+	<nav class="navbar navbar-expand-lg bg-black">
 		<div class="container-fluid">
-			<h1 class="navbar-brand mb-0 text-white">Contabilidad Personal</h1>
-			<button class="navbar-toggler bg-white" type="button"
+			<img
+				src="https://assets.materialup.com/uploads/bcf6dd06-7117-424f-9a6e-4bb795c8fb4d/preview.png"
+				alt="Logo" width="40" height="40"
+				class="d-inline-block align-text-top"> <a
+				class="navbar-brand text-light" href="DashboardController?ruta=ver">
+				Mi Chaucherita Web </a>
+			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
@@ -35,27 +40,28 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link custom-nav-link"
-						href="DashboardController?ruta=ver">Dashboard</a></li>
-					<li class="nav-item"><a class="nav-link custom-nav-link"
-						href="RegistrarMovimientosController?ruta=nuevoIngreso">Ingreso</a>
-					</li>
-					<li class="nav-item"><a class="nav-link custom-nav-link"
-						href="RegistrarMovimientosController?ruta=nuevoEgreso">Egreso</a>
-					</li>
-					<li class="nav-item"><a class="nav-link custom-nav-link"
-						href="RegistrarMovimientosController?ruta=nuevoIngresoEgreso">Transferencia</a>
+					<li class="nav-item"><a class="nav-link text-light"
+						aria-current="page" href="DashboardController?ruta=ver">Dashboard</a></li>
+					<li class="nav-item"><a class="nav-link  activo"
+						href="RegistrarMovimientosController?ruta=nuevoIngreso">Ingreso</a></li>
+					<li class="nav-item"><a class="nav-link text-light"
+						href="RegistrarMovimientosController?ruta=nuevoEgreso">Egreso</a></li>
+					<li class="nav-item"><a class="nav-link text-light"
+						href="RegistrarMovimientosController?ruta=nuevoIngresoEgreso">Transferencia</a></li>
+					<li class="nav-item"><a class="nav-link disabled text-light">Cuentas</a>
 					</li>
 				</ul>
 			</div>
+
 		</div>
 	</nav>
 
 	<div class="container">
-		<div class="row justify-content-center">
+		<div class="row d-flex justify-content-center">
 			<div class="col-md-6">
-				<h2 class="text-center mb-4">Registro de Ingreso</h2>
-				 <form method="post" action="RegistrarMovimientosController?ruta=guardarIngreso">
+				<h2 class="text-center m-4">Registro de Ingreso</h2>
+				<form method="post"
+					action="RegistrarMovimientosController?ruta=guardarIngreso">
 					<div class="mb-3">
 						<label for="categoria-ingreso" class="form-label">Categoría
 							Ingreso</label> <select class="form-select" name="idCuentaOrigen"
@@ -94,7 +100,14 @@
 							</c:forEach>
 						</select>
 					</div>
-					<button type="submit" class="btn btn-primary">Guardar</button>
+					
+					<div class="row">
+					<button type="submit" class="btn btn-dark btn-lg">Guardar</button>
+					</div>
+
+						
+
+
 				</form>
 			</div>
 		</div>

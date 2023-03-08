@@ -25,3 +25,9 @@ body {
 .custom-nav-link:focus {
     color: #17a2b8;
 }
+
+.nav-link:hover {
+	color: orange !important;
+}
+
+.activo{color: orange }
