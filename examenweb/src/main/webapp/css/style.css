@@ -1,0 +1,27 @@
+body {
+    margin: 0px;
+}
+
+/* Fondo negro */
+.custom-nav {
+    background-color: black;
+}
+
+/* Letras blancas */
+.custom-nav-link {
+    color: white;
+}
+
+.active {
+    color: #17a2b8;
+}
+
+/* Color celeste al pasar por encima */
+.custom-nav-link:hover {
+    color: #17a2b8;
+}
+
+/* Color celeste cuando se selecciona */
+.custom-nav-link:focus {
+    color: #17a2b8;
+}
