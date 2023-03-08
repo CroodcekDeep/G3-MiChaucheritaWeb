@@ -32,7 +32,7 @@
 				class="d-inline-block align-text-top"> <a
 				class="navbar-brand text-light" href="DashboardController?ruta=ver">
 				Mi Chaucherita Web </a>
-			<button class="navbar-toggler" type="button"
+			<button class="navbar-toggler bg-warning" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
@@ -100,12 +100,12 @@
 							</c:forEach>
 						</select>
 					</div>
-					
+
 					<div class="row">
-					<button type="submit" class="btn btn-dark btn-lg">Guardar</button>
+						<button type="submit" class="btn btn-dark btn-lg">Guardar</button>
 					</div>
 
-						
+
 
 
 				</form>

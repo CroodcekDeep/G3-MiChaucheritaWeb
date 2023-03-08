@@ -32,7 +32,7 @@
 						class="d-inline-block align-text-top"> <a
 						class="navbar-brand text-light"
 						href="DashboardController?ruta=ver"> Mi Chaucherita Web </a>
-					<button class="navbar-toggler" type="button"
+					<button class="navbar-toggler bg-warning" type="button"
 						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 						aria-controls="navbarSupportedContent" aria-expanded="false"
 						aria-label="Toggle navigation">
@@ -63,7 +63,7 @@
 				  <form method="post" action="RegistrarMovimientosController?ruta=guardarEgreso">
 					<div class="mb-3">
 						<label for="categoria-ingreso" class="form-label">Categoría
-							Ingreso</label> <select class="form-select" name="idCuentaOrigen"
+							Ingreso Gasto</label> <select class="form-select" name="idCuentaOrigen"
 							required>
 							<option value="">Seleccione una cuenta...</option>
 							<c:forEach items="${cuentasIngresoGasto}" var="cuentasIngresoGasto">
