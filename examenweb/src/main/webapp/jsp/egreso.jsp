@@ -13,10 +13,10 @@
         <div class="bg-black text-white p-3">Contabilidad Personal</div>
         <div class="bg-body-secondary pt-2 pb-1 ps-2">
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="ingreso.html">Ingreso</a></li>
-                <li class="list-inline-item"><a href="">Egreso</a></li>
-                <li class="list-inline-item"><a href="">Transferencia</a></li>
-                <li class="list-inline-item"><a href="dashboard.html">Dashboard</a></li>
+            	<li class="list-inline-item"><a href="DashboardController?ruta=ver">Dashboard</a></li>
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoIngreso">Ingreso</a></li>
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoEgreso">Egreso</a></li>
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoIngresoEgreso">Transferencia</a></li> 
             </ul>
         </div>
 
@@ -38,7 +38,7 @@
                     <label>Fecha</label>
                     <input type="date" name="fecha">
                     <label>Valor</label>
-                    <input type="text" name="valor" id="" placeholder="money">
+                    <input type="text" name="valor" id="">
                     <label>Categoría egreso</label>
                      <select name="idCuentaDestino">
                     <c:forEach items="${cuentasEgreso}" var="cuentaEgreso">

@@ -6,21 +6,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
         <div class="bg-black text-white p-3">Contabilidad Personal</div>
         <div class="bg-body-secondary pt-2 pb-1 ps-2">
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="ingreso.html">Ingreso</a></li>
-                <li class="list-inline-item"><a href="">Egreso</a></li>
-                <li class="list-inline-item"><a href="">Transferencia</a></li>
-                <li class="list-inline-item"><a href="dashboard.html">Dashboard</a></li>
+            	<li class="list-inline-item"><a href="DashboardController?ruta=ver">Dashboard</a></li>
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoIngreso">Ingreso</a></li>
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoEgreso">Egreso</a></li>
+                <li class="list-inline-item"><a href="RegistrarMovimientosController?ruta=nuevoIngresoEgreso">Transferencia</a></li> 
             </ul>
         </div>
 
         <div>
-            <h1>Registro de Ingreso ($$)</h1>
+            <h1>Registro de Transferencia ($$)</h1>
 
             <form method="post" action="RegistrarMovimientosController?ruta=guardarIngresoEgreso">
                 <fieldset class="d-flex flex-column">
