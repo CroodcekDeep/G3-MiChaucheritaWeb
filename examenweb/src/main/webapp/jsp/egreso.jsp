@@ -55,7 +55,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<h2 class="text-center mb-4">Registro de Egresos</h2>
-				 <form method="post" action="RegistrarMovimientosController?ruta=guardarIngreso">
+				  <form method="post" action="RegistrarMovimientosController?ruta=guardarEgreso">
 					<div class="mb-3">
 						<label for="categoria-ingreso" class="form-label">Categoría
 							Ingreso</label> <select class="form-select" name="idCuentaOrigen"
